@@ -2,7 +2,7 @@
 ---#######################
 --Autores: 
 --Camacho Cruz Fernando Eliomar 
---Suárez Condori Juan Gabriel 
+--Suï¿½rez Condori Juan Gabriel 
 --Sutta Atayupanqui Anthony   
 --Yabar Latorre Gonzalo Eduardo
 --########################
@@ -31,6 +31,35 @@ create table Cliente
 )
 go
 
+--Tabla proveedor
+if OBJECT_ID('Proveedor','U') is not null
+	drop table Proveedor
+go
+create table Proveedor
+(
+	IDP int primary key,
+	nombreP varchar(50),
+	telefonoP char(9),
+	correoP varchar(50),
+	direccionP varchar(50)
+
+)
+go
+
+--Tabla Electrodomestico
+if OBJECT_ID('Electrodomestico','U') is not null
+	drop table Electrodomestico
+go
+create table Electrodomestico
+(
+	IdE int primary key,
+	nombreE varchar(50),
+	descripcionE varchar(50),
+	marcaE varchar(50),
+	precioE decimal(8,2)
+) 
+go
+
 --Tabla conprobante 
 
 if OBJECT_ID('Comprobante','U') is not null
@@ -45,21 +74,6 @@ create table Comprobante
 	totalCom decimal(10,2),
 	IDC int,
 	foreign key (IDC) references Cliente(IDC)
-)
-go
-
---Tabla proveedor
-if OBJECT_ID('Proveedor','U') is not null
-	drop table Proveedor
-go
-create table Proveedor
-(
-	IDP int primary key,
-	nombreP varchar(50),
-	telefonoP char(9),
-	correoP varchar(50),
-	direccionP varchar(50)
-
 )
 go
 
@@ -78,22 +92,6 @@ create table OrdenCompra
 
 )
 go
-
-
---Tabla Electrodomestico
-if OBJECT_ID('Electrodomestico','U') is not null
-	drop table Electrodomestico
-go
-create table Electrodomestico
-(
-	IdE int primary key,
-	nombreE varchar(50),
-	descripcionE varchar(50),
-	marcaE varchar(50),
-	precioE decimal(8,2)
-) 
-go
-
 
 --Tabla Detalles de Entraga 
 if OBJECT_ID('DetallesDeEntrega','U') is not null
@@ -114,10 +112,3 @@ create table DetallesDeEntrega
 
 )
 go
-
-
-
-
-
-
-
