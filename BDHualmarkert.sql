@@ -1,86 +1,83 @@
-CREATE TABLESPACE BDHualmarkert
-DATAFILE 'd:\oracle\BDHualmarkert.dbf'
+-- Crear el TABLESPACE
+CREATE TABLESPACE BDHualmarket
+DATAFILE 'D:\oracle\BDHualmarket.dbf'
 SIZE 100M
 AUTOEXTEND ON NEXT 10M MAXSIZE UNLIMITED;
 
----crear la tabla cliente
-DROP table CLiente;
-Create TABLE Cliente(
-    IDCLI number primary key,
-    nombreCLI varchar2(50),
-    paternoCLI varchar2(50),
+-- Eliminar y crear la tabla Cliente
+DROP TABLE Cliente;
+CREATE TABLE Cliente (
+    CodCLI VARCHAR2(50) PRIMARY KEY,
+    nombreCLI VARCHAR2(50),
+    paternoCLI VARCHAR2(50),
     maternoCLI VARCHAR2(50),
-    celularCLI  number(9),
-    direccionCLI varchar2(50),
-    pipoDocCLI VARCHAR2(50),
-    nroDocCLI number(8)
-)TABLESPACE BDHualmarkert;
+    celularCLI VARCHAR2(9),
+    direccionCLI VARCHAR2(50),
+    tipoDocCLI VARCHAR2(50),
+    nroDocCLI VARCHAR2(8)
+) TABLESPACE BDHualmarket;
 
----Comprobante
-DROP table Comprobante;
-Create TABLE Comprobante(
-    IDCom number primary key,
-    tipodeCom varchar(50),
-    fechaCom DATE,
-    totalCom number(10,2),
-    IDCLI number,
-    foreign Key(IDCLI) references Cliente(IDCLI)
-)TABLESPACE BDHualmarkert;
-
---- Detalle
-DROP table Detalle;
-Create TABLE Detalle(
-    IDDet number primary key,
-    cantidadDet number,
-    precioUniDet number(10,2),
-    descuentoDet number(10,2),
-    subtotalDet number(10,2),
-    impuestoDet number(10,2),
-    IDCom number,
-    foreign Key(IDCom) references Comprobante(IDCom)
-)TABLESPACE BDHualmarkert;
-
----Producto
-DROP table Producto;
-Create TABLE Producto(
-    IDProd number primary key,
-    nombreProd VARCHAR2(50),
-    marcharProd VARCHAR2(50),
-    precioProd number(10,2),
-    IDDet number,
-    IDCat varchar2(50),
-    IDOC DATE,
-    foreign Key(IDDet) references Detalle(IDDet),
-    foreign Key(IDCat) references categoria(IDCat),
-    foreign Key(IDOC) references OrdenDeCompra(IDOC)
-)TABLESPACE BDHualmarkert;
-
----categoria
-DROP table categoria;
-Create TABLE categoria(
-    IDCat varchar2(50) primary key,
-    nombreCat varchar2(50)
-)TABLESPACE BDHualmarkert;
-
----OrdenDeCompra
-DROP table OrdenDeCompra;
-Create TABLE OrdenDeCompra(
-    IDOC DATE primary key,
-    estadoOC VARCHAR2(50),
-    descripcionOC VARCHAR2(50)
-)TABLESPACE BDHualmarkert;
-
----Proveedor
-DROP table Proveedor;
-Create TABLE Proveedor(
-    IDProv number primary key,
+-- Eliminar y crear la tabla Proveedor
+DROP TABLE Proveedor;
+CREATE TABLE Proveedor (
+    CodProv VARCHAR2(50) PRIMARY KEY,
     nombreProv VARCHAR2(50),
     telefonoProv VARCHAR2(9),
-    direccionProv VARCHAR2(50),
-    IDOC DATE,
-    foreign Key(IDOC) references OrdenDeCompra(IDOC)
-)TABLESPACE BDHualmarkert;
+    direccionProv VARCHAR2(50)
+) TABLESPACE BDHualmarket;
 
+-- Eliminar y crear la tabla Comprobante
+DROP TABLE Comprobante;
+CREATE TABLE Comprobante (
+    IDCom NUMBER PRIMARY KEY,
+    tipodeCom VARCHAR2(50),
+    fechaCom DATE,
+    totalCom NUMBER(10,2),
+    CodCLI VARCHAR2(50),
+    FOREIGN KEY (CodCLI) REFERENCES Cliente(CodCLI)
+) TABLESPACE BDHualmarket;
 
+-- Eliminar y crear la tabla OrdenDeCompra
+DROP TABLE OrdenDeCompra;
+CREATE TABLE OrdenDeCompra (
+    IDOC NUMBER PRIMARY KEY,
+    estadoOC VARCHAR2(50),
+    descripcionOC VARCHAR2(50),
+    CodProv VARCHAR2(50),
+    FOREIGN KEY (CodProv) REFERENCES Proveedor(CodProv)
+) TABLESPACE BDHualmarket;
 
+-- Eliminar y crear la tabla Categoria
+DROP TABLE Categoria;
+CREATE TABLE Categoria (
+    CodCat VARCHAR2(50) PRIMARY KEY,
+    nombreCat VARCHAR2(50)
+) TABLESPACE BDHualmarket;
 
+-- Eliminar y crear la tabla Producto
+DROP TABLE Producto;
+CREATE TABLE Producto (
+    IDProd NUMBER PRIMARY KEY,
+    nombreProd VARCHAR2(50),
+    marcaProd VARCHAR2(50),
+    precioProd NUMBER(10,2),
+    CodCat VARCHAR2(50),
+    IDOC NUMBER,
+    IDDet NUMBER,
+    FOREIGN KEY (CodCat) REFERENCES Categoria(CodCat),
+    FOREIGN KEY (IDOC) REFERENCES OrdenDeCompra(IDOC),
+    FOREIGN KEY (IDDet) REFERENCES Detalle(IDDet)
+) TABLESPACE BDHualmarket;
+
+-- Eliminar y crear la tabla Detalle
+DROP TABLE Detalle;
+CREATE TABLE Detalle (
+    IDDet NUMBER PRIMARY KEY,
+    cantidadDet NUMBER,
+    precioUniDet NUMBER(10,2),
+    descuentoDet NUMBER(10,2),
+    subtotalDet NUMBER(10,2),
+    impuestoDet NUMBER(10,2),
+    IDCom NUMBER,
+    FOREIGN KEY (IDCom) REFERENCES Comprobante(IDCom)
+) TABLESPACE BDHualmarket;
