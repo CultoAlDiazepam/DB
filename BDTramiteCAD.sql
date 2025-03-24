@@ -30,7 +30,7 @@ VALUES('S001','EST', 'carnet','123016101J',
 '911111111','51-84-221111','123016101J@uandina.edu.pe');
 INSERT INTO tSolicitante
 VALUES('S002','EST','carnet','123015100A',
-'PÈrez','S·nchez','JosÈ', NULL,
+'P√©rez','S√°nchez','Jos√©', NULL,
 '922222222','51-84-222222','123015100A@uandina.edu.pe');
 INSERT INTO tSolicitante
 VALUES('S003','EST','carnet','123014200D',
@@ -71,19 +71,19 @@ INSERT INTO tOficina
 VALUES('O001','Rectorado',
 'AG-101 Larapa','Zambrano Ramos, Juan');
 INSERT INTO tOficina
-VALUES('O002','DirecciÛn de TecnologÌas de InformaciÛn',
-'ING-205 Larapa', 'Torres Campos, CÈsar');
+VALUES('O002','Direcci√≥n de Tecnolog√≠as de Informaci√≥n',
+'ING-205 Larapa', 'Torres Campos, C√©sar');
 INSERT INTO tOficina
-VALUES('O003','DirecciÛn del D.A. de IngenierÌa de Sistemas',
+VALUES('O003','Direcci√≥n del D.A. de Ingenier√≠a de Sistemas',
 'ING-211 Larapa', 'Zamalloa Campos, Gino');
 INSERT INTO tOficina
-VALUES('O004','TesorerÌa',
-'E-301 MÛdulo de entrada - Larapa','RamÌrez Tapia, Nohelia');
+VALUES('O004','Tesorer√≠a',
+'E-301 M√≥dulo de entrada - Larapa','Ram√≠rez Tapia, Nohelia');
 INSERT INTO tOficina
 VALUES('O005','RRHH',
-'SÛtano del Paraninfo - Larapa','MartÌnez Salazar, Dante');
+'S√≥tano del Paraninfo - Larapa','Mart√≠nez Salazar, Dante');
 INSERT INTO tOficina
-VALUES('O006', 'Decanatura de IngenierÌa',
+VALUES('O006', 'Decanatura de Ingenier√≠a',
 'ING-214 - Larapa', 'Gamarra Miranda, Javier');
 
 
@@ -98,7 +98,7 @@ PRIMARY KEY (idC)
 
 
 INSERT INTO tConcepto
-VALUES('C001','ConvalidaciÛn de sÌlabos',9);
+VALUES('C001','Convalidaci√≥n de s√≠labos',9);
 INSERT INTO tConcepto
 VALUES('C002','Constancia de seguimiento de estudios',20);
 INSERT INTO tConcepto
@@ -106,12 +106,12 @@ VALUES('C003','Certificado de estudios',30);
 INSERT INTO tConcepto
 VALUES('C004', 'Bachillerato I.S.',750);
 INSERT INTO tConcepto
-VALUES('C005', 'Tr·mite',10);
+VALUES('C005', 'Tr√°mite',10);
 INSERT INTO tConcepto
-VALUES('C006', 'Carta de presentaciÛn para pr·cticas',12);
+VALUES('C006', 'Carta de presentaci√≥n para pr√°cticas',12);
 
 INSERT INTO tConcepto
-VALUES('C007', 'TÌtulo de Ingeniero de Sistemas',900);
+VALUES('C007', 'T√≠tulo de Ingeniero de Sistemas',900);
 
 
 CREATE TABLE tRecibo
@@ -167,10 +167,10 @@ FOREIGN KEY (idR) REFERENCES tRecibo(idR));
 
 INSERT INTO tTramite
 VALUES('T001','25-06-2027 10:15:00',
-'Licencia por 2 dÌas',2,'S006','O005');
+'Licencia por 2 d√≠as',2,'S006','O005');
 INSERT INTO tTramite
 VALUES('T002','27-06-2017 12:00:00',
-'ConvalidaciÛn de sÌlabos de I.S.',2,'S001','O006');
+'Convalidaci√≥n de s√≠labos de I.S.',2,'S001','O006');
 INSERT INTO tTramite
 VALUES('T003','25-07-2017 12:50:00',
 'Constancia de seg. estudios',2,'S002','O006');
@@ -182,11 +182,11 @@ VALUES('T005','08-01-2017 10:05:00',
 'Bachillerato',11,'S004','O006');
 INSERT INTO tTramite
 VALUES('T006','08-03-2017 12:30:00',
-'Carta presentaciÛn pr·ct EGEMSA 1-sep al 1 mar 2017',
+'Carta presentaci√≥n pr√°ct EGEMSA 1-sep al 1 mar 2017',
 2,'S005','O006');
 INSERT INTO tTramite
 VALUES('T007','08-04-2017 08:30:00',
-'Permiso por salud 5 dÌas',2,'S007','O005');
+'Permiso por salud 5 d√≠as',2,'S007','O005');
 
 
 INSERT INTO tRecibo_Tramite
