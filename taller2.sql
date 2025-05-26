@@ -10,15 +10,15 @@ GO
 -- =====================================================
 -- SCRIPT DE FUNCIONES PARA BASE DE DATOS NORTHWIND
 -- Este script contiene 4 funciones para diferentes consultas
--- Cada función incluye DROP IF EXISTS para permitir recreación
+-- Cada funciÃ³n incluye DROP IF EXISTS para permitir recreaciÃ³n
 -- =====================================================
 
 -- =====================================================
--- FUNCIÓN 1: GetTokyoSuppliers
--- PROPÓSITO: Selecciona todos los proveedores (suppliers) que están
---           ubicados en Tokyo, Japan. Útil para filtrar proveedores
---           por ubicación geográfica específica.
--- RETORNA: Tabla con información completa de suppliers de Tokyo
+-- FUNCIÃ“N 1: GetTokyoSuppliers
+-- PROPÃ“SITO: Selecciona todos los proveedores (suppliers) que estÃ¡n
+--           ubicados en Tokyo, Japan. Ãštil para filtrar proveedores
+--           por ubicaciÃ³n geogrÃ¡fica especÃ­fica.
+-- RETORNA: Tabla con informaciÃ³n completa de suppliers de Tokyo
 -- =====================================================
 DROP FUNCTION IF EXISTS dbo.GetTokyoSuppliers;
 GO
@@ -48,10 +48,10 @@ RETURN
 GO
 
 -- =====================================================
--- FUNCIÓN 2: GetProductsByPriceRange
--- PROPÓSITO: Obtiene productos que tienen un precio unitario entre $10 y $20.
---           Esta función es útil para análisis de productos de rango
---           medio de precios y control de inventario por categoría de precio.
+-- FUNCIÃ“N 2: GetProductsByPriceRange
+-- PROPÃ“SITO: Obtiene productos que tienen un precio unitario entre $10 y $20.
+--           Esta funciÃ³n es Ãºtil para anÃ¡lisis de productos de rango
+--           medio de precios y control de inventario por categorÃ­a de precio.
 -- RETORNA: Tabla con productos activos (no descontinuados) en el rango de precio especificado
 -- =====================================================
 DROP FUNCTION IF EXISTS dbo.GetProductsByPriceRange;
@@ -77,12 +77,12 @@ RETURN
 GO
 
 -- =====================================================
--- FUNCIÓN 3: GetDairyProductsFromSupplier15
--- PROPÓSITO: Selecciona productos de la categoría "Dairy Products" 
+-- FUNCIÃ“N 3: GetDairyProductsFromSupplier15
+-- PROPÃ“SITO: Selecciona productos de la categorÃ­a "Dairy Products" 
 --           que son suministrados por el proveedor con ID 15.
---           Útil para análisis específico de productos lácteos de un proveedor particular.
--- RETORNA: Tabla con productos lácteos del supplier 15, incluyendo información
---          del proveedor y categoría mediante JOINs
+--           Ãštil para anÃ¡lisis especÃ­fico de productos lÃ¡cteos de un proveedor particular.
+-- RETORNA: Tabla con productos lÃ¡cteos del supplier 15, incluyendo informaciÃ³n
+--          del proveedor y categorÃ­a mediante JOINs
 -- =====================================================
 DROP FUNCTION IF EXISTS dbo.GetDairyProductsFromSupplier15;
 GO
@@ -110,18 +110,18 @@ RETURN
 GO
 
 -- =====================================================
--- FUNCIÓN 4: GetEmployeeSalesAnalysis
--- PROPÓSITO: Realiza un análisis completo del rendimiento de ventas por empleado.
---           Utiliza múltiples JOINs entre las tablas principales para generar
---           métricas de rendimiento comercial. Es fundamental para evaluación
---           de desempeño y toma de decisiones gerenciales.
+-- FUNCIÃ“N 4: GetEmployeeSalesAnalysis
+-- PROPÃ“SITO: Realiza un anÃ¡lisis completo del rendimiento de ventas por empleado.
+--           Utiliza mÃºltiples JOINs entre las tablas principales para generar
+--           mÃ©tricas de rendimiento comercial. Es fundamental para evaluaciÃ³n
+--           de desempeÃ±o y toma de decisiones gerenciales.
 -- TABLAS INVOLUCRADAS: Employees, Orders, Order Details, Products
--- RETORNA: Tabla con estadísticas completas de ventas por empleado incluyendo:
---          - Total de órdenes procesadas
+-- RETORNA: Tabla con estadÃ­sticas completas de ventas por empleado incluyendo:
+--          - Total de Ã³rdenes procesadas
 --          - Cantidad total de productos vendidos
 --          - Monto total de ventas (considerando descuentos)
---          - Promedio de venta por artículo
---          - Fechas de primera y última venta
+--          - Promedio de venta por artÃ­culo
+--          - Fechas de primera y Ãºltima venta
 -- =====================================================
 DROP FUNCTION IF EXISTS dbo.GetEmployeeSalesAnalysis;
 GO
@@ -160,21 +160,21 @@ GO
 -- =====================================================
 
 
--- FUNCIÓN 1: Obtener suppliers de Tokyo, Japan
--- Útil para: Análisis de proveedores por región geográfica
+-- FUNCIÃ“N 1: Obtener suppliers de Tokyo, Japan
+-- Ãštil para: AnÃ¡lisis de proveedores por regiÃ³n geogrÃ¡fica
 SELECT * FROM dbo.GetTokyoSuppliers();
 
--- FUNCIÓN 2: Productos con precio entre $10 y $20
--- Útil para: Análisis de productos de rango medio, control de inventario
+-- FUNCIÃ“N 2: Productos con precio entre $10 y $20
+-- Ãštil para: AnÃ¡lisis de productos de rango medio, control de inventario
 SELECT * FROM dbo.GetProductsByPriceRange() 
 ORDER BY UnitPrice DESC;
 
--- FUNCIÓN 3: Productos lácteos del supplier 15
--- Útil para: Análisis específico de categoría y proveedor
+-- FUNCIÃ“N 3: Productos lÃ¡cteos del supplier 15
+-- Ãštil para: AnÃ¡lisis especÃ­fico de categorÃ­a y proveedor
 SELECT * FROM dbo.GetDairyProductsFromSupplier15();
 
--- FUNCIÓN 4: Análisis de rendimiento de ventas por empleado
--- Útil para: Evaluaciones de desempeño, reportes gerenciales
+-- FUNCIÃ“N 4: AnÃ¡lisis de rendimiento de ventas por empleado
+-- Ãštil para: Evaluaciones de desempeÃ±o, reportes gerenciales
 SELECT * FROM dbo.GetEmployeeSalesAnalysis() 
 ORDER BY TotalSalesAmount DESC;
 
@@ -278,14 +278,14 @@ BEGIN
 END;
 GO
 
--- Prueba de la función
+-- Prueba de la funciÃ³n
 SELECT dbo.calcular_precio_con_iva(100) AS Precio_Con_IVA;
 
 
 
 
 ------------ADVENTUREWORKS---------------------
--- Calcula la edad de una persona según su fecha de nacimiento.
+-- Calcula la edad de una persona segÃºn su fecha de nacimiento.
 GO
 CREATE FUNCTION dbo.ufn_Calcularedad (@BirthDate DATE)
 RETURNS INT
@@ -300,6 +300,17 @@ BEGIN
            END;
 END;
 GO
+
+SELECT 
+    e.BusinessEntityID,
+    p.FirstName,
+    p.LastName,
+    e.BirthDate,
+    dbo.ufn_Calcularedad(e.BirthDate) AS Edad
+FROM HumanResources.Employee e
+JOIN Person.Person p
+    ON e.BusinessEntityID = p.BusinessEntityID;
+
 
 CREATE FUNCTION dbo.ufn_ProductMargin (
     @ProductID INT
@@ -316,3 +327,12 @@ BEGIN
     IF @Price = 0 RETURN 0;
     RETURN ((@Price - @Cost) / @Price) * 100;
 END;
+
+SELECT 
+    ProductID,
+    Name,
+    StandardCost,
+    ListPrice,
+    dbo.ufn_ProductMargin(ProductID) AS MargenPorcentual
+FROM Production.Product;
+
