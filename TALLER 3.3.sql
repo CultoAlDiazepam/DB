@@ -1,97 +1,85 @@
+-- Aseg√∫rate de que est√°s en el contexto de la base de datos master o ninguna para crearla
+-- USE master;
+-- GO
+-- DROP DATABASE IF EXISTS baseTramites; -- Opcional: si quieres empezar de cero cada vez
+-- GO
 
 CREATE DATABASE baseTramites;
+GO
+
 USE baseTramites;
+GO
+
 CREATE TABLE tSolicitante
 (
-idS VARCHAR(4) NOT NULL, 
-tipoS VARCHAR(7),
-tipoDocumS VARCHAR(7),
-nroDocumS VARCHAR(15),
-paternoS VARCHAR(50),
-maternoS VARCHAR(50),
-nombresS VARCHAR(50),
-razonSocialS VARCHAR(50),
-celularS VARCHAR(15),
-telefonoS VARCHAR(15),
-dirElectronS VARCHAR(50),
-PRIMARY KEY (idS)
+    idS VARCHAR(4) NOT NULL,
+    tipoS VARCHAR(7),
+    tipoDocumS VARCHAR(7),
+    nroDocumS VARCHAR(15),
+    paternoS VARCHAR(50),
+    maternoS VARCHAR(50),
+    nombresS VARCHAR(50),
+    razonSocialS VARCHAR(50),
+    celularS VARCHAR(15),
+    telefonoS VARCHAR(15),
+    dirElectronS VARCHAR(50),
+    PRIMARY KEY (idS)
 );
+GO
 
 INSERT INTO tSolicitante
-VALUES('S001','EST', 'carnet','123016101J',
-'Torres', 'Loza','Boris', NULL,
-'911111111','51-84-221111','123016101J@uandina.edu.pe');
+VALUES('S001','EST', 'carnet','123016101J', 'Torres', 'Loza','Boris', NULL, '911111111','51-84-221111','123016101J@uandina.edu.pe');
 INSERT INTO tSolicitante
-VALUES('S002','EST','carnet','123015100A',
-'PÈrez','S·nchez','JosÈ', NULL,
-'922222222','51-84-222222','123015100A@uandina.edu.pe');
+VALUES('S002','EST','carnet','123015100A', 'P√©rez','S√°nchez','Jos√©', NULL, '922222222','51-84-222222','123015100A@uandina.edu.pe');
 INSERT INTO tSolicitante
-VALUES('S003','EST','carnet','123014200D',
-'Arenas','Campos','Raul', NULL,
-'933333333','51-84-223333','123014200D@uandina.edu.pe');
+VALUES('S003','EST','carnet','123014200D', 'Arenas','Campos','Raul', NULL, '933333333','51-84-223333','123014200D@uandina.edu.pe');
 INSERT INTO tSolicitante
-VALUES('S004','EST','carnet','123015300F',
-'Maldonado', 'Rojas','Jorge', NULL,
-'944444444','51-84-224444','123015300F@uandina.edu.pe');
+VALUES('S004','EST','carnet','123015300F', 'Maldonado', 'Rojas','Jorge', NULL, '944444444','51-84-224444','123015300F@uandina.edu.pe');
 INSERT INTO tSolicitante
-VALUES('S005','EST', 'carnet','123015300B',
-'Salinas','Valle','Daniel',NULL,
-'955555555','51-84-225555','123015300B@uandina.edu.pe');
-
-
+VALUES('S005','EST', 'carnet','123015300B', 'Salinas','Valle','Daniel',NULL, '955555555','51-84-225555','123015300B@uandina.edu.pe');
 INSERT INTO tSolicitante
-VALUES('S006', 'PROF', 'DNI', '01111110',
-'Palomino','Cahuaya', 'Ariadna', NULL,
-'966666666','51-84-226666', 'apalominoc@uandina.edu');
+VALUES('S006', 'PROF', 'DNI', '01111110', 'Palomino','Cahuaya', 'Ariadna', NULL, '966666666','51-84-226666', 'apalominoc@uandina.edu');
 INSERT INTO tSolicitante
-VALUES('S007', 'PROF', 'DNI', '02222220',
-'Espetia','Humanga', 'Hugo', NULL,
-'966666666','51-84-226666', 'hespetia@uandina.edu.pe');
-
-
+VALUES('S007', 'PROF', 'DNI', '02222220', 'Espetia','Humanga', 'Hugo', NULL, '977777777','51-84-227777', 'hespetia@uandina.edu.pe'); -- Asumo que quer√≠as un n√∫mero de celular diferente y correo con .pe para este
+GO
 
 
 CREATE TABLE tOficina
 (
-idO VARCHAR(4) NOT NULL,
-denominacionO VARCHAR(50),
-ubicacionO VARCHAR(50),
-responsableO VARCHAR(50),
-PRIMARY KEY (idO)
+    idO VARCHAR(4) NOT NULL,
+    denominacionO VARCHAR(50),
+    ubicacionO VARCHAR(50),
+    responsableO VARCHAR(50),
+    PRIMARY KEY (idO)
 );
+GO
 
 INSERT INTO tOficina
-VALUES('O001','Rectorado',
-'AG-101 Larapa','Zambrano Ramos, Juan');
+VALUES('O001','Rectorado', 'AG-101 Larapa','Zambrano Ramos, Juan');
 INSERT INTO tOficina
-VALUES('O002','DirecciÛn de TecnologÌas de InformaciÛn',
-'ING-205 Larapa', 'Torres Campos, CÈsar');
+VALUES('O002','Direcci√≥n de Tecnolog√≠as de Informaci√≥n', 'ING-205 Larapa', 'Torres Campos, C√©sar');
 INSERT INTO tOficina
-VALUES('O003','DirecciÛn del D.A. de IngenierÌa de Sistemas',
-'ING-211 Larapa', 'Zamalloa Campos, Gino');
+VALUES('O003','Direcci√≥n del D.A. de Ingenier√≠a de Sistemas', 'ING-211 Larapa', 'Zamalloa Campos, Gino');
 INSERT INTO tOficina
-VALUES('O004','TesorerÌa',
-'E-301 MÛdulo de entrada - Larapa','RamÌrez Tapia, Nohelia');
+VALUES('O004','Tesorer√≠a', 'E-301 M√≥dulo de entrada - Larapa','Ram√≠rez Tapia, Nohelia');
 INSERT INTO tOficina
-VALUES('O005','RRHH',
-'SÛtano del Paraninfo - Larapa','MartÌnez Salazar, Dante');
+VALUES('O005','RRHH', 'S√≥tano del Paraninfo - Larapa','Mart√≠nez Salazar, Dante');
 INSERT INTO tOficina
-VALUES('O006', 'Decanatura de IngenierÌa',
-'ING-214 - Larapa', 'Gamarra Miranda, Javier');
-
+VALUES('O006', 'Decanatura de Ingenier√≠a', 'ING-214 - Larapa', 'Gamarra Miranda, Javier');
+GO
 
 
 CREATE TABLE tConcepto
 (
-idC VARCHAR(4) NOT NULL,
-denominacionC VARCHAR(50),
-costoC DECIMAL(10,2),
-PRIMARY KEY (idC)
+    idC VARCHAR(4) NOT NULL,
+    denominacionC VARCHAR(50),
+    costoC DECIMAL(10,2),
+    PRIMARY KEY (idC)
 );
-
+GO
 
 INSERT INTO tConcepto
-VALUES('C001','ConvalidaciÛn de sÌlabos',9);
+VALUES('C001','Convalidaci√≥n de s√≠labos',9);
 INSERT INTO tConcepto
 VALUES('C002','Constancia de seguimiento de estudios',20);
 INSERT INTO tConcepto
@@ -99,86 +87,83 @@ VALUES('C003','Certificado de estudios',30);
 INSERT INTO tConcepto
 VALUES('C004', 'Bachillerato I.S.',750);
 INSERT INTO tConcepto
-VALUES('C005', 'Tr·mite',10);
+VALUES('C005', 'Tr√°mite',10);
 INSERT INTO tConcepto
-VALUES('C006', 'Carta de presentaciÛn para pr·cticas',12);
-
+VALUES('C006', 'Carta de presentaci√≥n para pr√°cticas',12);
 INSERT INTO tConcepto
-VALUES('C007', 'TÌtulo de Ingeniero de Sistemas',900);
+VALUES('C007', 'T√≠tulo de Ingeniero de Sistemas',900);
+GO
 
 CREATE TABLE tRecibo
 (
-idR VARCHAR(4) NOT NULL, 
-fechaHoraR DATETIME,
-cantidadR INT,
-totalR DECIMAL(10,2),
-idC VARCHAR(4),
-PRIMARY KEY (idR),
-FOREIGN KEY (idC) REFERENCES tConcepto(idC),
-idS VARCHAR(4),
-FOREIGN KEY (idS) REFERENCES tSolicitante(idS)
+    idR VARCHAR(4) NOT NULL,
+    fechaHoraR DATETIME,
+    cantidadR INT,
+    totalR DECIMAL(10,2),
+    idC VARCHAR(4),
+    PRIMARY KEY (idR),
+    FOREIGN KEY (idC) REFERENCES tConcepto(idC),
+    idS VARCHAR(4),
+    FOREIGN KEY (idS) REFERENCES tSolicitante(idS)
 );
+GO
 
-
-
+-- Fechas cambiadas a formato YYYY-MM-DD HH:MM:SS
 INSERT INTO tRecibo
-VALUES('R002','06-27-2017 11:30:00',9,NULL, 'C001', 'S001');
-
+VALUES('R002','2017-06-27 11:30:00',9,NULL, 'C001', 'S001');
 INSERT INTO tRecibo
-VALUES('R003', '07-25-2017 12:30:00',1,NULL, 'C002', 'S002');
+VALUES('R003', '2017-07-25 12:30:00',1,NULL, 'C002', 'S002');
 INSERT INTO tRecibo
-VALUES('R004', '07-26-2017 09:45:00',1,NULL, 'C003', 'S003');
+VALUES('R004', '2017-07-26 09:45:00',1,NULL, 'C003', 'S003');
 INSERT INTO tRecibo
-VALUES('R005', '08-01-2017 09:55:00',1,NULL, 'C004', 'S004');
+VALUES('R005', '2017-08-01 09:55:00',1,NULL, 'C004', 'S004');
 INSERT INTO tRecibo
-VALUES('R006','08-03-2017 09:56:00',1,NULL, 'C005', 'S004');
+VALUES('R006','2017-08-03 09:56:00',1,NULL, 'C005', 'S004');
 INSERT INTO tRecibo
-VALUES('R007', '08-04-2017 12:00:00',1,NULL, 'C006', 'S005');
+VALUES('R007', '2017-08-04 12:00:00',1,NULL, 'C006', 'S005');
+GO
 
 CREATE TABLE tTramite
-( idT VARCHAR(4) NOT NULL, 
-fechaHoraT DATETIME,
-nombreT VARCHAR(70),
-cantidadFoliosT INT,
-idS VARCHAR(4),
-PRIMARY KEY (idT),
-FOREIGN KEY (idS) REFERENCES tSolicitante(idS),
-idO VARCHAR(4),
-FOREIGN KEY (idO) REFERENCES tOficina(idO));
+(
+    idT VARCHAR(4) NOT NULL,
+    fechaHoraT DATETIME,
+    nombreT VARCHAR(70),
+    cantidadFoliosT INT,
+    idS VARCHAR(4),
+    PRIMARY KEY (idT),
+    FOREIGN KEY (idS) REFERENCES tSolicitante(idS),
+    idO VARCHAR(4),
+    FOREIGN KEY (idO) REFERENCES tOficina(idO)
+);
+GO
 
 CREATE TABLE tRecibo_Tramite
-(idRT VARCHAR(4) NOT NULL,
-PRIMARY KEY (idRT),
-idT VARCHAR(4),
-FOREIGN KEY (idT) REFERENCES tTramite(idT),
-idR VARCHAR(4),
-FOREIGN KEY (idR) REFERENCES tRecibo(idR));
+(
+    idRT VARCHAR(4) NOT NULL,
+    PRIMARY KEY (idRT),
+    idT VARCHAR(4),
+    FOREIGN KEY (idT) REFERENCES tTramite(idT),
+    idR VARCHAR(4),
+    FOREIGN KEY (idR) REFERENCES tRecibo(idR)
+);
+GO
 
-
-
+-- Fechas cambiadas a formato YYYY-MM-DD HH:MM:SS
 INSERT INTO tTramite
-VALUES('T001','06-25-2027 10:15:00',
-'Licencia por 2 dÌas',2,'S006','O005');
+VALUES('T001','2027-06-25 10:15:00', 'Licencia por 2 d√≠as',2,'S006','O005');
 INSERT INTO tTramite
-VALUES('T002','06-27-2017 12:00:00',
-'ConvalidaciÛn de sÌlabos de I.S.',2,'S001','O006');
+VALUES('T002','2017-06-27 12:00:00', 'Convalidaci√≥n de s√≠labos de I.S.',2,'S001','O006');
 INSERT INTO tTramite
-VALUES('T003','07-25-2017 12:50:00',
-'Constancia de seg. estudios',2,'S002','O006');
+VALUES('T003','2017-07-25 12:50:00', 'Constancia de seg. estudios',2,'S002','O006');
 INSERT INTO tTramite
-VALUES('T004','07-26-2017 10:00:00',
-'Certificado de estudios del 2017-I',2,'S003','O006');
+VALUES('T004','2017-07-26 10:00:00', 'Certificado de estudios del 2017-I',2,'S003','O006');
 INSERT INTO tTramite
-VALUES('T005','08-01-2017 10:05:00',
-'Bachillerato',11,'S004','O006');
+VALUES('T005','2017-08-01 10:05:00', 'Bachillerato',11,'S004','O006');
 INSERT INTO tTramite
-VALUES('T006','08-03-2017 12:30:00',
-'Carta presentaciÛn pr·ct EGEMSA 1-sep al 1 mar 2017',
-2,'S005','O006');
+VALUES('T006','2017-08-03 12:30:00', 'Carta presentaci√≥n pr√°ct EGEMSA 1-sep al 1 mar 2017', 2,'S005','O006');
 INSERT INTO tTramite
-VALUES('T007','08-04-2017 08:30:00',
-'Permiso por salud 5 dÌas',2,'S007','O005');
-
+VALUES('T007','2017-08-04 08:30:00', 'Permiso por salud 5 d√≠as',2,'S007','O005');
+GO
 
 INSERT INTO tRecibo_Tramite
 VALUES('RT01','T002','R002');
@@ -192,145 +177,172 @@ INSERT INTO tRecibo_Tramite
 VALUES('RT05','T005','R006');
 INSERT INTO tRecibo_Tramite
 VALUES('RT06','T006','R007');
+GO
 
- 
-
-
-select * from tRecibo
-------------------------------------------------------Crear un trigger para calcular autom·ticamente el totalR en tRecibo.
+SELECT * FROM tRecibo;
+GO
+------------------------------------------------------Crear un trigger para calcular autom√°ticamente el totalR en tRecibo.
 CREATE TRIGGER d_calcular_total_recibo
 ON tRecibo
 INSTEAD OF INSERT
 AS
 BEGIN
- SET NOCOUNT ON;
+    SET NOCOUNT ON;
 
- INSERT INTO tRecibo (idR, fechaHoraR, cantidadR, totalR, idC, idS)
- SELECT
- i.idR,
- i.fechaHoraR,
- i.cantidadR,
- i.cantidadR * c.costoC AS totalR,
- i.idC,
- i.idS
- FROM
- inserted i
- INNER JOIN
- tConcepto c ON i.idC = c.idC;
-END
-GOINSERT INTO tRecibo (idR, fechaHoraR, cantidadR, idC, idS)
- VALUES('R010', '2025-03-17', 5, 'C001','S005')-------------------------------------------------------Crear un trigger para validar el formato de correo electrÛnico en tSolicitanteCREATE TRIGGER d_validar_email_solicitante
+    INSERT INTO tRecibo (idR, fechaHoraR, cantidadR, totalR, idC, idS)
+    SELECT
+        i.idR,
+        i.fechaHoraR,
+        i.cantidadR,
+        i.cantidadR * c.costoC AS totalR, -- C√°lculo del total
+        i.idC,
+        i.idS
+    FROM
+        inserted i
+    INNER JOIN
+        tConcepto c ON i.idC = c.idC;
+END;
+GO
+
+-- Prueba del trigger (ya no se pasa totalR, se calcula autom√°ticamente)
+INSERT INTO tRecibo (idR, fechaHoraR, cantidadR, idC, idS)
+VALUES('R010', '2025-03-17 10:00:00', 5, 'C001','S005'); -- Fecha y hora completas
+GO
+SELECT * FROM tRecibo WHERE idR = 'R010';
+GO
+-------------------------------------------------------Crear un trigger para validar el formato de correo electr√≥nico en tSolicitante
+CREATE TRIGGER d_validar_email_solicitante
 ON tSolicitante
 AFTER INSERT, UPDATE
 AS
 BEGIN
- SET NOCOUNT ON;
+    SET NOCOUNT ON;
 
- IF EXISTS (
- SELECT 1 FROM inserted
- WHERE tipoS = 'EST' AND dirElectronS NOT LIKE '%@uandina.edu.pe'
- )
- BEGIN
- RAISERROR('Los estudiantes deben tener un correo institucional
-(@uandina.edu.pe)', 16, 1);
- ROLLBACK TRANSACTION;
- RETURN;
+    IF EXISTS (
+        SELECT 1 FROM inserted
+        WHERE tipoS = 'EST' AND dirElectronS NOT LIKE '%@uandina.edu.pe'
+    )
+    BEGIN
+        RAISERROR('Los estudiantes deben tener un correo institucional (@uandina.edu.pe)', 16, 1);
+        ROLLBACK TRANSACTION;
+        RETURN;
+    END;
+
+    IF EXISTS (
+        SELECT 1 FROM inserted
+        WHERE tipoS = 'PROF' AND dirElectronS NOT LIKE '%@uandina.edu%' -- M√°s gen√©rico para profesores, puede ser @uandina.edu o @uandina.edu.pe
+    )
+    BEGIN
+        RAISERROR('Los profesores deben tener un correo institucional que contenga (@uandina.edu)', 16, 1);
+        ROLLBACK TRANSACTION;
+        RETURN;
+    END;
 END;
-IF EXISTS (
- SELECT 1 FROM inserted
- WHERE tipoS = 'PROF' AND dirElectronS NOT LIKE '%@uandina.edu%'
- )
- BEGIN
- RAISERROR('Los profesores deben tener un correo institucional (@uandina.edu)',
-16, 1);
- ROLLBACK TRANSACTION;
- RETURN;
- END;
-END;
+GO
 
-
-
+-- Prueba de validaci√≥n de correo (deber√≠a fallar)
+-- INSERT INTO tSolicitante
+-- VALUES('S020', 'EST', 'carnet','120202020E', 'Zamalloa','C√°rdenas', 'Aldo', NULL, '920202020', '51-84-222020', '120202020E@edu.pe');
+-- GO
+-- Prueba de validaci√≥n de correo (deber√≠a pasar)
 INSERT INTO tSolicitante
- VALUES('S020', 'EST', 'carnet','120202020E', 'Zamalloa','C·rdenas', 'Aldo', NULL,
-'920202020', '51-84-222020', '120202020E@edu.pe')
-
+VALUES('S021', 'EST', 'carnet','120202021F', 'Gomez','Paz', 'Luis', NULL, '920202021', '51-84-222021', '120202021F@uandina.edu.pe');
+GO
+SELECT * FROM tSolicitante WHERE idS = 'S021';
+GO
 
 ----------------------------------------------------------------------------Crear un trigger para detectar cambios en tTramite.
-
 CREATE TABLE tAuditoriaTramite (
- idAuditoria INT IDENTITY(1,1) PRIMARY KEY,
- idT VARCHAR(4),
- fechaHoraCambio DATETIME,
- usuario VARCHAR(50),
- accion VARCHAR(10),
- detalles VARCHAR(MAX)
-);---------CREATE TRIGGER d_auditar_cambios_tramite
+    idAuditoria INT IDENTITY(1,1) PRIMARY KEY,
+    idT VARCHAR(4),
+    fechaHoraCambio DATETIME,
+    usuario VARCHAR(128), -- SUSER_NAME() puede devolver hasta 128 caracteres
+    accion VARCHAR(10),
+    detalles VARCHAR(MAX)
+);
+GO
+
+CREATE TRIGGER d_auditar_cambios_tramite
 ON tTramite
 AFTER UPDATE
 AS
 BEGIN
- SET NOCOUNT ON;
-	INSERT INTO tAuditoriaTramite (idT, fechaHoraCambio, usuario, accion, detalles)
- SELECT
-i.idT,
- GETDATE(),
- SUSER_NAME(),
- 'UPDATE',
- 'Cambios: ' +
- CASE WHEN d.fechaHoraT <> i.fechaHoraT THEN 'fechaHoraT: ' +
-CONVERT(VARCHAR, d.fechaHoraT, 120) + ' -> ' + CONVERT(VARCHAR, i.fechaHoraT,
-120) + '; ' ELSE '' END +
- CASE WHEN d.nombreT <> i.nombreT THEN 'nombreT: ' + d.nombreT + ' -> ' +
-i.nombreT + '; ' ELSE '' END +
-CASE WHEN d.cantidadFoliosT <> i.cantidadFoliosT THEN 'cantidadFoliosT: ' +
-CAST(d.cantidadFoliosT AS VARCHAR) + ' -> ' + CAST(i.cantidadFoliosT AS VARCHAR) + ';
-' ELSE '' END +
- CASE WHEN d.idS <> i.idS THEN 'idS: ' + d.idS + ' -> ' + i.idS + '; ' ELSE '' END +
- CASE WHEN d.idO <> i.idO THEN 'idO: ' + d.idO + ' -> ' + i.idO + '; ' ELSE '' END
- FROM
- inserted i
- JOIN
- deleted d ON i.idT = d.idT;
+    SET NOCOUNT ON;
+    INSERT INTO tAuditoriaTramite (idT, fechaHoraCambio, usuario, accion, detalles)
+    SELECT
+        i.idT,
+        GETDATE(),
+        SUSER_SNAME(), -- Usar SUSER_SNAME() es m√°s com√∫n que SUSER_NAME()
+        'UPDATE',
+        'Cambios: ' +
+        CASE WHEN ISNULL(CONVERT(VARCHAR, d.fechaHoraT, 120), '') <> ISNULL(CONVERT(VARCHAR, i.fechaHoraT, 120), '') THEN 'fechaHoraT: ' + ISNULL(CONVERT(VARCHAR, d.fechaHoraT, 120),'NULL') + ' -> ' + ISNULL(CONVERT(VARCHAR, i.fechaHoraT, 120),'NULL') + '; ' ELSE '' END +
+        CASE WHEN ISNULL(d.nombreT, '') <> ISNULL(i.nombreT, '') THEN 'nombreT: ' + ISNULL(d.nombreT,'NULL') + ' -> ' + ISNULL(i.nombreT,'NULL') + '; ' ELSE '' END +
+        CASE WHEN ISNULL(d.cantidadFoliosT, -1) <> ISNULL(i.cantidadFoliosT, -1) THEN 'cantidadFoliosT: ' + ISNULL(CAST(d.cantidadFoliosT AS VARCHAR),'NULL') + ' -> ' + ISNULL(CAST(i.cantidadFoliosT AS VARCHAR),'NULL') + '; ' ELSE '' END +
+        CASE WHEN ISNULL(d.idS, '') <> ISNULL(i.idS, '') THEN 'idS: ' + ISNULL(d.idS,'NULL') + ' -> ' + ISNULL(i.idS,'NULL') + '; ' ELSE '' END +
+        CASE WHEN ISNULL(d.idO, '') <> ISNULL(i.idO, '') THEN 'idO: ' + ISNULL(d.idO,'NULL') + ' -> ' + ISNULL(i.idO,'NULL') + '; ' ELSE '' END
+    FROM
+        inserted i
+    JOIN
+        deleted d ON i.idT = d.idT
+    WHERE -- Solo insertar si hubo alg√∫n cambio real para evitar filas vac√≠as de 'Cambios: '
+        ISNULL(CONVERT(VARCHAR, d.fechaHoraT, 120), '') <> ISNULL(CONVERT(VARCHAR, i.fechaHoraT, 120), '') OR
+        ISNULL(d.nombreT, '') <> ISNULL(i.nombreT, '') OR
+        ISNULL(d.cantidadFoliosT, -1) <> ISNULL(i.cantidadFoliosT, -1) OR
+        ISNULL(d.idS, '') <> ISNULL(i.idS, '') OR
+        ISNULL(d.idO, '') <> ISNULL(i.idO, '');
 END;
+GO
 
-
-
+-- Prueba del trigger de auditor√≠a
 UPDATE tTramite
- SET fechaHoraT = '2017-08-02'
- WHERE idT LIKE 'T005'
+SET fechaHoraT = '2017-08-02 10:05:00', nombreT = 'Bachillerato Autom√°tico' -- Fecha completa
+WHERE idT = 'T005'; -- Usar = en lugar de LIKE si es una PK exacta
+GO
+SELECT * FROM tTramite WHERE idT = 'T005';
+GO
+SELECT * FROM tAuditoriaTramite;
+GO
 
- select * from tTramite
-
---------------------------------------------------------------. Crear un trigger para evitar la eliminaciÛn de tr·mites con recibos asociados.
-
-
+--------------------------------------------------------------. Crear un trigger para evitar la eliminaci√≥n de tr√°mites con recibos asociados.
 CREATE TRIGGER d_prevenir_eliminacion_tramite
 ON tTramite
 INSTEAD OF DELETE
 AS
 BEGIN
- SET NOCOUNT ON;
+    SET NOCOUNT ON;
 
- IF EXISTS (
- SELECT 1
- FROM deleted d
- JOIN tRecibo_Tramite rt ON d.idT = rt.idT
- )
- BEGIN
- RAISERROR('No se puede eliminar el tr·mite porque tiene recibos asociados', 16,
-1);
- RETURN;
- END;
+    IF EXISTS (
+        SELECT 1
+        FROM deleted d
+        JOIN tRecibo_Tramite rt ON d.idT = rt.idT
+    )
+    BEGIN
+        RAISERROR('No se puede eliminar el tr√°mite porque tiene recibos asociados.', 16, 1);
+        ROLLBACK TRANSACTION; -- Aseg√∫rate de rollback si la operaci√≥n falla
+        RETURN;
+    END;
 
- DELETE FROM tTramite
- WHERE idT IN (SELECT idT FROM deleted);
+    -- Si no hay recibos asociados, proceder con la eliminaci√≥n
+    DELETE FROM tTramite
+    WHERE idT IN (SELECT idT FROM deleted);
 END;
+GO
 
+-- Prueba de eliminaci√≥n (deber√≠a fallar porque T006 tiene recibo RT06)
+-- DELETE FROM tTramite WHERE idT = 'T006';
+-- GO
+-- SELECT * FROM tTramite WHERE idT = 'T006';
+-- GO
+-- Prueba de eliminaci√≥n (deber√≠a pasar porque T001 no tiene recibos asociados)
+DELETE FROM tTramite WHERE idT = 'T001';
+GO
+SELECT * FROM tTramite WHERE idT = 'T001'; -- Deber√≠a estar vac√≠o
+GO
 
+-------------------------------------------------------------------------------------TAREA
 
-DELETE FROM tTramite
- WHERE idT LIKE 'T006'select * from tTramite -------------------------------------------------------------------------------------TAREA -- ============================================================================
--- TRIGGER 1: Validar que no se dupliquen n˙meros de documento en tSolicitante
+-- ============================================================================
+-- TRIGGER 1: Validar que no se dupliquen n√∫meros de documento en tSolicitante
 -- ============================================================================
 CREATE TRIGGER tr_validar_documento_unico
 ON tSolicitante
@@ -338,85 +350,102 @@ AFTER INSERT, UPDATE
 AS
 BEGIN
     SET NOCOUNT ON;
-    
-    -- Verificar si existe duplicaciÛn de n˙meros de documento
+
     IF EXISTS (
-        SELECT nroDocumS, tipoDocumS
-        FROM tSolicitante s1
-        WHERE EXISTS (
-            SELECT 1 FROM tSolicitante s2 
-            WHERE s1.nroDocumS = s2.nroDocumS 
-            AND s1.tipoDocumS = s2.tipoDocumS 
-            AND s1.idS <> s2.idS
-        )
-        AND s1.idS IN (SELECT idS FROM inserted)
+        SELECT 1
+        FROM tSolicitante s
+        JOIN inserted i ON s.nroDocumS = i.nroDocumS AND s.tipoDocumS = i.tipoDocumS
+        WHERE s.idS <> i.idS -- Asegurar que no es el mismo registro (importante en UPDATE)
     )
     BEGIN
-        RAISERROR('Ya existe un solicitante con el mismo tipo y n˙mero de documento', 16, 1);
+        RAISERROR('Ya existe un solicitante con el mismo tipo y n√∫mero de documento.', 16, 1);
         ROLLBACK TRANSACTION;
         RETURN;
     END;
 END;
+GO
 
-
+-- Prueba de duplicado (deber√≠a fallar)
+-- INSERT INTO tSolicitante
+-- VALUES('S008','EST', 'carnet','123016101J', 'Garc√≠a', 'L√≥pez','Ana', NULL, '977777777','51-84-227777','123016101J_ana@uandina.edu.pe');
+-- GO
+-- Prueba de no duplicado (deber√≠a pasar)
 INSERT INTO tSolicitante
-VALUES('S008','EST', 'carnet','123016101J',  -- Documento duplicado
-'GarcÌa', 'LÛpez','Ana', NULL,
-'977777777','51-84-227777','123016101J@uandina.edu.pe');
+VALUES('S009','EST', 'carnet','999999999Z', 'Kent', 'Clark','Super', NULL, '988888888','51-84-228888','999999999Z@uandina.edu.pe');
+GO
+SELECT * FROM tSolicitante WHERE idS = 'S009';
+GO
 
-select * from tSolicitante
-
-
----------------------------------------------------------TRIGGER 2
-CREATE TRIGGER trgvalidarfoliostramite
+---------------------------------------------------------TRIGGER 2: Validar que cantidadFoliosT sea mayor que cero en tTramite
+CREATE TRIGGER trg_validar_folios_tramite -- Nombre corregido
 ON tTramite
-INSTEAD OF INSERT
+INSTEAD OF INSERT -- Tambi√©n podr√≠a ser AFTER INSERT y hacer ROLLBACK si falla
 AS
 BEGIN
+    SET NOCOUNT ON;
     IF EXISTS (
-        SELECT 1 
-        FROM inserted 
-        WHERE cantidadFoliosT <= 0
+        SELECT 1
+        FROM inserted
+        WHERE ISNULL(cantidadFoliosT, 0) <= 0 -- Considerar NULL como inv√°lido tambi√©n
     )
     BEGIN
-        RAISERROR('La cantidad de folios debe ser mayor a cero.', 16, 1);
-        ROLLBACK TRANSACTION;
+        RAISERROR('La cantidad de folios debe ser un n√∫mero entero mayor a cero.', 16, 1);
+        ROLLBACK TRANSACTION; -- Importante si es INSTEAD OF y falla la condici√≥n
         RETURN;
-    END
+    END;
 
-    INSERT INTO tTramite (
-        idT, fechaHoraT, nombreT, cantidadFoliosT, idS, idO
-    )
-    SELECT 
-        idT, fechaHoraT, nombreT, cantidadFoliosT, idS, idO
+    -- Si la validaci√≥n pasa, insertar los datos
+    INSERT INTO tTramite (idT, fechaHoraT, nombreT, cantidadFoliosT, idS, idO)
+    SELECT idT, fechaHoraT, nombreT, cantidadFoliosT, idS, idO
     FROM inserted;
 END;
+GO
 
-INSERT INTO tTramite
-VALUES 
-('T008','2025-06-01 09:00:00','Solicitud de vacaciones 10 dÌas',2,'S006','O005'),
-('T009','2025-06-01 10:15:00','RenovaciÛn de contrato acadÈmico',3,'S007','O005'),
-('T010','2025-06-01 11:30:00','Constancia de no adeudo',1,'S001','O004'),
-('T011','2025-06-01 12:45:00','Solicitud de beca 2025-I',4,'S002','O006'),
-('T012','2025-06-01 13:30:00','CertificaciÛn de pr·cticas preprofesionales',5,'S005','O006'),
-('T013','2025-07-01 13:30:00','CertificaciÛn de pr·cticas preprofesionales',0,'S005','O006');
+-- Pruebas del trigger de folios
+-- Inserci√≥n v√°lida
+INSERT INTO tTramite (idT, fechaHoraT, nombreT, cantidadFoliosT, idS, idO)
+VALUES ('T008','2025-06-01 09:00:00','Solicitud de vacaciones 10 d√≠as',2,'S006','O005');
+GO
+-- Inserci√≥n inv√°lida (cantidadFoliosT = 0) - Deber√≠a fallar
+-- INSERT INTO tTramite (idT, fechaHoraT, nombreT, cantidadFoliosT, idS, idO)
+-- VALUES ('T013','2025-07-01 13:30:00','Certificaci√≥n de pr√°cticas preprofesionales',0,'S005','O006');
+-- GO
+-- Inserci√≥n inv√°lida (cantidadFoliosT = NULL) - Deber√≠a fallar
+-- INSERT INTO tTramite (idT, fechaHoraT, nombreT, cantidadFoliosT, idS, idO)
+-- VALUES ('T014','2025-07-02 14:00:00','Otro tr√°mite',NULL,'S005','O006');
+-- GO
+SELECT * FROM tTramite WHERE idT = 'T008';
+GO
 
-select * from tTramite;
-
--------------------------------------------------------------------------- TRIGGER 3
-CREATE TRIGGER trg_actualizar_fecha_tramite_por_recibo_tsql
-ON dbo.tRecibo_Tramite
+-------------------------------------------------------------------------- TRIGGER 3: Actualizar fechaHoraT en tTramite cuando se inserta en tRecibo_Tramite
+CREATE TRIGGER trg_actualizar_fecha_tramite_por_recibo
+ON dbo.tRecibo_Tramite -- Nombre completo con schema
 AFTER INSERT
 AS
 BEGIN
     SET NOCOUNT ON;
     UPDATE T
-    SET T.fechaHoraT = GETDATE()
+    SET T.fechaHoraT = GETDATE() -- Actualiza a la fecha y hora actual del sistema
     FROM dbo.tTramite AS T
     INNER JOIN inserted AS I ON T.idT = I.idT;
-END
+END;
 GO
 
-INSERT INTO dbo.tRecibo_Tramite (idRT,idT, idR) VALUES ('RT07','T007','R007');
-
-select * from tTramite;
+-- Prueba del trigger de actualizaci√≥n de fecha
+-- Primero, un tr√°mite para asociar un nuevo recibo
+INSERT INTO tTramite (idT, fechaHoraT, nombreT, cantidadFoliosT, idS, idO)
+VALUES ('T020','2024-01-01 08:00:00', 'Tr√°mite de prueba para fecha', 1, 'S001', 'O001');
+GO
+-- Un recibo para asociar
+INSERT INTO tRecibo (idR, fechaHoraR, cantidadR, idC, idS)
+VALUES('R020', '2024-01-01 07:00:00', 1, 'C005', 'S001');
+GO
+-- Verificar la fecha original de T020
+SELECT idT, fechaHoraT FROM tTramite WHERE idT = 'T020';
+GO
+-- Insertar en tRecibo_Tramite, lo que deber√≠a disparar el trigger y actualizar fechaHoraT de T020
+INSERT INTO dbo.tRecibo_Tramite (idRT,idT, idR) VALUES ('RT07','T020','R020');
+GO
+-- Verificar la fecha actualizada de T020
+SELECT idT, fechaHoraT FROM tTramite WHERE idT = 'T020';
+GO
